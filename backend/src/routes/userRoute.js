@@ -1,16 +1,17 @@
 import express from "express";
 import {
-  createUser,
+  requestAgent,
   deleteUser,
-  getUsers,
+  getAllUsers,
   updateUser,
-} from "../controllers/userController";
+} from "../controllers/userController.js";
 
 const router = express.Router();
 
-router.get("/", getUsers);
-router.post("/", createUser);
-router.put("/:id", updateUser);
-router.delete("/:id", deleteUser);
+//Routes
+router.get("/", getAllUsers);
+router.post("/request-agent", requestAgent);
+router.post("/approve-email/:id", approveEmail);
+router.post("/add-admin", addAdmin);
 
 export default router;
